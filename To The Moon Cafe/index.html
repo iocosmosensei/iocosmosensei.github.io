@@ -56,11 +56,6 @@
             color: #fff;
         }
 
-        .logo::before {
-            content: '🌙';
-            font-size: 2.5rem;
-        }
-
         .brand-name {
             font-size: 1.5rem;
             font-weight: bold;
@@ -114,15 +109,11 @@
         }
 
         .hero-logo {
-            width: 250px;
-            height: 250px;
+            width: 400px;
+            height: 400px;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 0 30px rgba(255,255,255,0.2));
+            filter: drop-shadow(0 0 50px rgba(255,255,255,0.4));
             animation: float 3s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12rem;
         }
 
         @keyframes float {
@@ -395,7 +386,7 @@
     <header>
         <nav>
             <div class="logo-container">
-                <img src="To The Moon Logo.jpg" alt="To The Moon Logo" class="logo">
+                <img src="To The Moon Logo Transparent.png" alt="To The Moon Logo" class="logo">
                 <span class="brand-name">To The Moon</span>
             </div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -410,8 +401,8 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="To The Moon Logo.jpg" alt="To The Moon Logo" class="hero logo">
-            <h1>To The Moon Cafe</h1>
+            <img src="To The Moon Logo Transparent.png" alt="To The Moon Logo" class="hero-logo">
+            <h1>To The Moon Internet Cafe</h1>
             <p>Experience gaming and connectivity at its finest. High-speed internet, premium gaming rigs, and a comfortable atmosphere.</p>
             <a href="#rates" class="cta-button">View Our Rates</a>
         </div>
