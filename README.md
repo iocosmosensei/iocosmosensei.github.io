@@ -1,2 +1,568 @@
-# information_management
-To The Moon Cafe
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The Moon Cafe - Premium Internet Cafe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #333;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #999;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            width: 400px;
+            height: 400px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 50px rgba(255,255,255,0.4));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #fff;
+            color: #000;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #ddd;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #555;
+            box-shadow: 0 10px 40px rgba(255,255,255,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* Rates Section */
+        .rates {
+            padding: 5rem 2rem;
+            background: #000;
+        }
+
+        .rates-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .rate-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border: 2px solid #222;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #fff, #666);
+        }
+
+        .rate-card:hover {
+            transform: scale(1.05);
+            border-color: #444;
+        }
+
+        .rate-card.featured {
+            border-color: #fff;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        }
+
+        .rate-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .price-period {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rate-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+
+        .rate-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .rate-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .contact-item p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid #222;
+        }
+
+        footer p {
+            color: #666;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-logo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="To The Moon Logo Transparent.png" alt="To The Moon Logo" class="logo">
+                <span class="brand-name">To The Moon</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#rates">Rates</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="To The Moon Logo Transparent.png" alt="To The Moon Logo" class="hero-logo">
+            <h1>To The Moon Internet Cafe</h1>
+            <p>Experience gaming and connectivity at its finest. High-speed internet, premium gaming rigs, and a comfortable atmosphere.</p>
+            <a href="#rates" class="cta-button">View Our Rates</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>High-Speed Internet</h3>
+                <p>Fiber optic connection with speeds up to 500 Mbps for seamless gaming and browsing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Gaming PCs</h3>
+                <p>Latest generation hardware with RTX graphics cards and mechanical keyboards.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">❄️</div>
+                <h3>Climate Controlled</h3>
+                <p>Fully air-conditioned space for maximum comfort during long gaming sessions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3>Private Rooms</h3>
+                <p>Book private gaming rooms for you and your squad for an exclusive experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Safe</h3>
+                <p>24/7 CCTV monitoring and secure storage for your belongings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3>Open 24/7</h3>
+                <p>We never close! Game anytime, day or night, whenever inspiration strikes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rates" class="rates">
+        <h2 class="section-title">Our Rates</h2>
+        <div class="rates-grid">
+            <div class="rate-card">
+                <h3>Hourly</h3>
+                <div class="price">₱30</div>
+                <div class="price-period">per hour</div>
+                <ul class="rate-features">
+                    <li>High-speed internet</li>
+                    <li>Standard gaming PC</li>
+                    <li>Comfortable seating</li>
+                    <li>Free cold water</li>
+                </ul>
+                <a href="#signup" class="cta-button">Get Started</a>
+            </div>
+            <div class="rate-card featured">
+                <h3>5-Hour Package</h3>
+                <div class="price">₱130</div>
+                <div class="price-period">₱26/hour - Save ₱20!</div>
+                <ul class="rate-features">
+                    <li>High-speed internet</li>
+                    <li>Premium gaming PC</li>
+                    <li>Comfortable seating</li>
+                    <li>Free snack included</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+            <div class="rate-card">
+                <h3>Overnight</h3>
+                <div class="price">₱200</div>
+                <div class="price-period">10PM - 8AM</div>
+                <ul class="rate-features">
+                    <li>High-speed internet</li>
+                    <li>Premium gaming PC</li>
+                    <li>Reclining chair</li>
+                    <li>Free meal & drinks</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Join To The Moon</h2>
+            <p style="color: #999; font-size: 1.1rem; margin-bottom: 2rem;">Create an account to enjoy exclusive member benefits and seamless booking.</p>
+            
+            <div style="max-width: 500px; margin: 0 auto; background: #1a1a1a; padding: 3rem; border-radius: 15px; border: 1px solid #333;">
+                <form id="signup-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Full Name</label>
+                        <input type="text" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Email Address</label>
+                        <input type="email" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Mobile Number</label>
+                        <input type="tel" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Password</label>
+                        <input type="password" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Create Account</button>
+                    
+                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem;">
+                        Already have an account? <a href="#" style="color: #fff; text-decoration: underline;">Log In</a>
+                    </p>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📞 Contact</h3>
+                    <p>Phone: (02) 1234-5678<br>Mobile: 0917-123-4567<br>Email: info@tothemooncafe.ph</p>
+                </div>
+                <div class="contact-item">
+                    <h3>⏰ Hours</h3>
+                    <p>Open 24/7<br>Every single day<br>Never closed!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 To The Moon Cafe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for signing up! Your account has been created.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
