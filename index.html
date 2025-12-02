@@ -572,11 +572,370 @@
     <footer>
         <p>&copy; 2024 To The Moon Cafe. All rights reserved.</p>
     </footer>
+ <!-- Employee Dashboard -->
+    <div id="employee-dashboard" class="dashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Employee Dashboard</h1>
+            <button class="logout-btn" onclick="logoutEmployee()">Logout</button>
+        </div>
+
+        <!-- Dashboard Overview -->
+        <div id="dashboard-overview" class="dashboard-section active">
+            <div class="dashboard-grid">
+                <div class="dashboard-card" onclick="showSection('transactions')">
+                    <div class="dashboard-card-icon">💳</div>
+                    <h3>Transactions</h3>
+                    <p>View and manage customer transactions</p>
+                </div>
+                <div class="dashboard-card" onclick="showSection('orders')">
+                    <div class="dashboard-card-icon">🍔</div>
+                    <h3>Order Transactions</h3>
+                    <p>Track food and product orders</p>
+                </div>
+                <div class="dashboard-card" onclick="showSection('computers')">
+                    <div class="dashboard-card-icon">💻</div>
+                    <h3>Computer Status</h3>
+                    <p>Monitor all computer stations</p>
+                </div>
+                <div class="dashboard-card" onclick="showSection('products')">
+                    <div class="dashboard-card-icon">🛒</div>
+                    <h3>Products</h3>
+                    <p>Manage inventory and products</p>
+                </div>
+                <div class="dashboard-card" onclick="showSection('sessions')">
+                    <div class="dashboard-card-icon">⏱️</div>
+                    <h3>Sessions</h3>
+                    <p>Track active and past sessions</p>
+                </div>
+                <div class="dashboard-card" onclick="showSection('rates')">
+                    <div class="dashboard-card-icon">💰</div>
+                    <h3>Rates Management</h3>
+                    <p>Update pricing and packages</p>
+                </div>
+            </div>
+        </div>
+     <!-- Transactions Section -->
+        <div id="transactions-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Transactions</h2>
+                <button class="back-btn" onclick="showSection('overview')">← Back to Dashboard</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Customer</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Date & Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#TXN-001</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>5-Hour Package</td>
+                        <td>₱130</td>
+                        <td>Dec 2, 2024 14:30</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                        <td><button class="action-btn">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>#TXN-002</td>
+                        <td>Maria Santos</td>
+                        <td>Hourly</td>
+                        <td>₱90</td>
+                        <td>Dec 2, 2024 15:00</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="action-btn">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>#TXN-003</td>
+                        <td>Pedro Garcia</td>
+                        <td>Overnight</td>
+                        <td>₱200</td>
+                        <td>Dec 2, 2024 22:00</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="action-btn">View Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Order Transactions Section -->
+        <div id="orders-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Order Transactions</h2>
+                <div>
+                    <button class="add-btn" onclick="alert('New order functionality')">+ New Order</button>
+                    <button class="back-btn" onclick="showSection('overview')">← Back to Dashboard</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>PC Number</th>
+                        <th>Items</th>
+                        <th>Total Amount</th>
+                        <th>Order Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-201</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>PC-01</td>
+                        <td>Energy Drink x2, Chips x1</td>
+                        <td>₱130</td>
+                        <td>Dec 2, 2024 14:45</td>
+                        <td><span class="status-badge status-active">Preparing</span></td>
+                        <td>
+                            <button class="action-btn">Mark Ready</button>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-202</td>
+                        <td>Maria Santos</td>
+                        <td>PC-03</td>
+                        <td>Instant Noodles x1, Water x1</td>
+                        <td>₱40</td>
+                        <td>Dec 2, 2024 15:20</td>
+                        <td><span class="status-badge status-completed">Delivered</span></td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-203</td>
+                        <td>Pedro Garcia</td>
+                        <td>PC-05</td>
+                        <td>Meal Combo x1, Energy Drink x1</td>
+                        <td>₱180</td>
+                        <td>Dec 2, 2024 23:15</td>
+                        <td><span class="status-badge status-ready">Ready</span></td>
+                        <td>
+                            <button class="action-btn">Mark Delivered</button>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-204</td>
+                        <td>Ana Reyes</td>
+                        <td>PC-07</td>
+                        <td>Chips x3, Soda x2</td>
+                        <td>₱140</td>
+                        <td>Dec 2, 2024 16:00</td>
+                        <td><span class="status-badge status-active">Preparing</span></td>
+                        <td>
+                            <button class="action-btn">Mark Ready</button>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-205</td>
+                        <td>Carlos Mendoza</td>
+                        <td>PC-12</td>
+                        <td>Sandwich x1, Coffee x1</td>
+                        <td>₱95</td>
+                        <td>Dec 2, 2024 16:30</td>
+                        <td><span class="status-badge status-completed">Delivered</span></td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Computer Status Section -->
+        <div id="computers-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Computer Status</h2>
+                <button class="back-btn" onclick="showSection('overview')">← Back to Dashboard</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>PC Number</th>
+                        <th>Specifications</th>
+                        <th>Status</th>
+                        <th>Current User</th>
+                        <th>Time Remaining</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PC-01</td>
+                        <td>RTX 4060, i5-12400, 16GB RAM</td>
+                        <td><span class="status-badge status-occupied">Occupied</span></td>
+                        <td>Juan Dela Cruz</td>
+                        <td>2h 30m</td>
+                        <td><button class="action-btn">Manage</button></td>
+                    </tr>
+                    <tr>
+                        <td>PC-02</td>
+                        <td>RTX 4060, i5-12400, 16GB RAM</td>
+                        <td><span class="status-badge status-available">Available</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><button class="action-btn">Manage</button></td>
+                    </tr>
+                    <tr>
+                        <td>PC-03</td>
+                        <td>RTX 4070, i7-13700, 32GB RAM</td>
+                        <td><span class="status-badge status-occupied">Occupied</span></td>
+                        <td>Maria Santos</td>
+                        <td>1h 15m</td>
+                        <td><button class="action-btn">Manage</button></td>
+                    </tr>
+                    <tr>
+                        <td>PC-04</td>
+                        <td>RTX 4060, i5-12400, 16GB RAM</td>
+                        <td><span class="status-badge status-maintenance">Maintenance</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><button class="action-btn">Manage</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sessions Section -->
+        <div id="sessions-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Customer Sessions</h2>
+                <button class="back-btn" onclick="showSection('overview')">← Back to Dashboard</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Session ID</th>
+                        <th>Customer</th>
+                        <th>PC Number</th>
+                        <th>Start Time</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#SES-101</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>PC-01</td>
+                        <td>Dec 2, 2024 12:00</td>
+                        <td>5 hours</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>
+                            <button class="action-btn">Extend</button>
+                            <button class="action-btn">End</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#SES-102</td>
+                        <td>Maria Santos</td>
+                        <td>PC-03</td>
+                        <td>Dec 2, 2024 13:45</td>
+                        <td>3 hours</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>
+                            <button class="action-btn">Extend</button>
+                            <button class="action-btn">End</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#SES-103</td>
+                        <td>Pedro Garcia</td>
+                        <td>PC-05</td>
+                        <td>Dec 1, 2024 22:00</td>
+                        <td>10 hours</td>
+                        <td><span class="status-badge status-completed">Completed</span></td>
+                        <td>
+                            <button class="action-btn">View Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rates Management Section -->
+        <div id="rates-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Rates Management</h2>
+                <button class="back-btn" onclick="showSection('overview')">← Back to Dashboard</button>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Per Hour Rate</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hourly</td>
+                        <td>1 hour</td>
+                        <td>₱30</td>
+                        <td>₱30/hour</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="action-btn">Edit Price</button></td>
+                    </tr>
+                    <tr>
+                        <td>5-Hour Package</td>
+                        <td>5 hours</td>
+                        <td>₱130</td>
+                        <td>₱26/hour</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="action-btn">Edit Price</button></td>
+                    </tr>
+                    <tr>
+                        <td>Overnight</td>
+                        <td>10PM - 8AM</td>
+                        <td>₱200</td>
+                        <td>₱20/hour</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="action-btn">Edit Price</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('active');
+        }
+
+        function showForm(formType) {
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            const signupTab = document.getElementById('signup-tab');
+            const loginTab = document.getElementById('login-tab');
+
+            if (formType === 'signup') {
+                signupForm.style.display = 'flex';
+                loginForm.style.display = 'none';
+                signupTab.classList.add('active-tab');
+                loginTab.classList.remove('active-tab');
+            } else {
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'flex';
+                signupTab.classList.remove('active-tab');
+                loginTab.classList.add('active-tab');
+            }
         }
 
         // Smooth scrolling
@@ -592,12 +951,73 @@
             });
         });
 
-        // Handle form submission
+        // Handle signup form submission
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for signing up! Your account has been created.');
             this.reset();
         });
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const accountType = document.getElementById('account-type').value;
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (accountType === 'customer') {
+                alert('Welcome back, Customer! You have successfully logged in.');
+            } else {
+                // Show employee dashboard
+                document.querySelector('header').style.display = 'none';
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.features').style.display = 'none';
+                document.querySelector('.rates').style.display = 'none';
+                document.querySelector('.contact').style.display = 'none';
+                document.querySelector('footer').style.display = 'none';
+                document.getElementById('employee-dashboard').classList.add('active');
+            }
+            this.reset();
+        });
+
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            if (sectionName === 'overview') {
+                document.getElementById('dashboard-overview').classList.add('active');
+            } else if (sectionName === 'transactions') {
+                document.getElementById('transactions-section').classList.add('active');
+            } else if (sectionName === 'orders') {
+                document.getElementById('orders-section').classList.add('active');
+            } else if (sectionName === 'computers') {
+                document.getElementById('computers-section').classList.add('active');
+            } else if (sectionName === 'products') {
+                document.getElementById('products-section').classList.add('active');
+            } else if (sectionName === 'sessions') {
+                document.getElementById('sessions-section').classList.add('active');
+            } else if (sectionName === 'rates') {
+                document.getElementById('rates-section').classList.add('active');
+            }
+        }
+
+        function logoutEmployee() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Hide dashboard and show main website
+                document.getElementById('employee-dashboard').classList.remove('active');
+                document.querySelector('header').style.display = 'block';
+                document.querySelector('.hero').style.display = 'flex';
+                document.querySelector('.features').style.display = 'block';
+                document.querySelector('.rates').style.display = 'block';
+                document.querySelector('.contact').style.display = 'block';
+                document.querySelector('footer').style.display = 'block';
+                
+                // Reset to overview section
+                showSection('overview');
+            }
+        }
     </script>
 </body>
 </html>
