@@ -485,13 +485,19 @@
             </div>
         </div>
     </section>
-
-    <section id="signup" class="contact">
+<section id="signup" class="contact">
         <div class="contact-content">
             <h2 class="section-title">Join To The Moon</h2>
-            <p style="color: #999; font-size: 1.1rem; margin-bottom: 2rem;">Create an account to enjoy exclusive member benefits and seamless booking.</p>
+            <p style="color: #999; font-size: 1.1rem; margin-bottom: 2rem;">Create an account or log in to enjoy exclusive member benefits and seamless booking.</p>
             
             <div style="max-width: 500px; margin: 0 auto; background: #1a1a1a; padding: 3rem; border-radius: 15px; border: 1px solid #333;">
+                <!-- Tab Buttons -->
+                <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                    <button onclick="showForm('signup')" id="signup-tab" class="tab-button active-tab" style="flex: 1; padding: 0.8rem; background: #fff; color: #000; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">Sign Up</button>
+                    <button onclick="showForm('login')" id="login-tab" class="tab-button" style="flex: 1; padding: 0.8rem; background: #0a0a0a; color: #fff; border: 1px solid #333; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">Log In</button>
+                </div>
+
+                <!-- Sign Up Form -->
                 <form id="signup-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div style="text-align: left;">
                         <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Full Name</label>
@@ -514,9 +520,39 @@
                     </div>
                     
                     <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Create Account</button>
+                </form>
+
+                <!-- Login Form -->
+                <form id="login-form" style="display: none; flex-direction: column; gap: 1.5rem;">
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Account Type</label>
+                        <select id="account-type" style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                            <option value="customer">Customer</option>
+                            <option value="employee">Employee</option>
+                        </select>
+                    </div>
+
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Email Address</label>
+                        <input type="email" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
                     
-                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem;">
-                        Already have an account? <a href="#" style="color: #fff; text-decoration: underline;">Log In</a>
+                    <div style="text-align: left;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #fff;">Password</label>
+                        <input type="password" required style="width: 100%; padding: 0.8rem; background: #0a0a0a; border: 1px solid #333; border-radius: 5px; color: #fff; font-size: 1rem;">
+                    </div>
+
+                    <div style="text-align: left;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: #999; cursor: pointer;">
+                            <input type="checkbox" style="width: auto;">
+                            Remember me
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Log In</button>
+                    
+                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+                        <a href="#" style="color: #fff; text-decoration: underline;">Forgot Password?</a>
                     </p>
                 </form>
             </div>
@@ -533,7 +569,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <p>&copy; 2024 To The Moon Cafe. All rights reserved.</p>
     </footer>
